@@ -1,24 +1,33 @@
 # --- Header -------------------------------------------------------------------
-# Automates running AI job matching simulation and generating outcomes
+# Automates scraping, sentiment analysis, and figure generation
 # If you are new to Makefiles: https://makefiletutorial.com
 # (C) Mel Mzv - See LICENSE file for details
 # ------------------------------------------------------------------------------
-
-OUTCOME_DATA := data/generated/simulated_outcomes.parquet
-
 .PHONY: all clean very-clean
 
-all: $(OUTCOME_DATA)
+# --- Output targets ---
+TONE_PLOT := data/generated/tone_plot.png
+INDIVIDUAL_PLOT := data/generated/figure_individual_speeches.png
+QUARTERLY_PLOT := data/generated/figure_quarterly_mean_median.png
 
-# Run simulation script to generate outcomes
-$(OUTCOME_DATA): code/python/ai_job_matching_simulation.py
-	mkdir -p data/generated
+all: $(TONE_PLOT) $(INDIVIDUAL_PLOT) $(QUARTERLY_PLOT)
+
+# --- Step 1: Scrape Fed Speeches ---
+data/pulled:
+	python code/scrape_fed_speeches.py
+
+# --- Step 2: Tone Evolution from External Files ---
+$(TONE_PLOT): code/sentiment_tone_evolution.py
 	python $<
 
-# Clean output data
-clean:
-	rm -f $(OUTCOME_DATA)
+# --- Step 3: Analyze Speech Sentiment by Date and Quarter ---
+$(INDIVIDUAL_PLOT) $(QUARTERLY_PLOT): code/sentiment_individual_quarterly_2008.py data/pulled
+	python $<
 
-# Clean everything including pulled data (if added later)
+# --- Clean generated figures only ---
+clean:
+	rm -f $(TONE_PLOT) $(INDIVIDUAL_PLOT) $(QUARTERLY_PLOT)
+
+# --- Remove everything including scraped speech files ---
 very-clean: clean
 	rm -rf data/pulled

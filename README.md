@@ -1,4 +1,4 @@
-# AI-Based Job Matching Simulation for Labor Market Research
+# The Signaling Channel of QE during the Global Financial Crisis: Evidence from Fed Communication Tone
 The project extends the theoretical and empirical foundations laid out in recent academic work - most notably **Le Barbanchon et al. (2023)** - on the use of algorithmic job recommendation systems to mitigate search frictions in two-sided labor markets. The simulation approximates a stylized version of a randomized controlled trial in which AI-based job recommendations are evaluated against traditional search mechanisms.
 
 The motivation behind this prototype is twofold: first, to critically examine how AI tools reshape managerial decision-making and hiring practices; second, to explore their implications for job seekers, especially future graduates, navigating increasingly complex, tech-mediated labor markets. In line with the seminar’s learning goals, this prototype not only simulates algorithmic impact on match quality, retention, and wages, but also provides an extendable framework for analyzing equity and effectiveness in digital recruitment ecosystems.
