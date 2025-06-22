@@ -28,20 +28,20 @@ This section presents the three key visualizations generated from the tone analy
 
 
 <p align="center">
-  <img src="data/generated/Figure_tone_over_time.png" alt="Tone Over Time" width="800"/>
-  <br><em><strong>Figure 1:</strong> Daily average sentiment scores (compound polarity) for all Fed speeches in 2008. Notable drops in tone can be observed around key crisis dates, such as the Bear Stearns bailout in March and the Lehman collapse in September. The gradual recovery of tone toward December coincides with stronger forward guidance and unconventional easing communication. This graph reflects the Fed’s tone trajectory under rising financial stress.</em>
+  <img src="data/generated/figure_individual_speeches.png" alt="Sentiment of Individual Fed Speeches in 2008" width="850"/>
+  <br><em><strong>Figure 1:</strong> Sentiment scores (compound VADER polarity) of individual Federal Reserve speeches in 2008. While the majority of speeches express highly positive tone (close to +1), several speeches around key market panic episodes – especially in March, June, and September – exhibit sharp drops to neutral or negative territory. This graph captures the volatility and urgency in tone during the most critical phases of the financial crisis.</em>
 </p>
 
 
 <p align="center">
-  <img src="data/generated/Figure_tone_by_speaker.png" alt="Tone by Speaker" width="850"/>
-  <br><em><strong>Figure 2:</strong> Average sentiment score by Fed speaker in 2008. Chairman Ben Bernanke shows a consistently more negative tone than other governors, likely reflecting his role during high-stakes interventions. Other members such as Kohn and Yellen maintain relatively neutral language. These differences hint at individual communication styles and leadership roles during crisis response.</em>
+  <img src="data/generated/figure_quarterly_mean_median.png" alt="Quarterly Sentiment of Fed Speeches" width="800"/>
+  <br><em><strong>Figure 2:</strong> Quarterly average (blue) and median (red) sentiment scores of all Fed speeches in 2008. The data show a notable decline in average tone from Q1 to Q3, with a recovery in Q4, aligning with the timeline of quantitative easing (QE1) announcements. Interestingly, the median sentiment remains consistently high across all quarters, indicating that only a subset of speeches drove the average sentiment drop—likely those given by central figures at pivotal crisis moments.</em>
 </p>
 
 
 <p align="center">
-  <img src="data/generated/Figure_quarterly_tone.png" alt="Quarterly Tone Shift" width="700"/>
-  <br><em><strong>Figure 3:</strong> Quarterly average tone of Fed speeches in 2008. The steep decline from Q1 to Q3 underscores the worsening financial outlook, culminating in QE announcements. The partial rebound in Q4 suggests a communication shift toward reassurance and signaling of long-term policy commitment. This chart supports the hypothesis that tone evolves with both market conditions and policy signaling goals.</em>
+  <img src="data/generated/tone_plot.png" alt="Tone Evolution for Key Speeches" width="800"/>
+  <br><em><strong>Figure 3:</strong> Evolution of tone for four landmark Fed speeches in 2008, each tied to a distinct policy or market event. Tone drops significantly between January and September, reflecting worsening market conditions and escalating interventions. The final speech (QE1 announcement in December) marks a sharp rebound in sentiment score, suggesting deliberate use of tone to support credibility and calm markets during extraordinary easing.</em>
 </p>
 
 
