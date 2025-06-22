@@ -1,12 +1,12 @@
 This `data_readme.md` documents the structure and purpose of the data used in the Fed Communication Sentiment Analysis project. This repository supports the reproducible analysis of Federal Reserve speeches during the 2008 financial crisis, focusing on sentiment trends and communication tone evolution.
 
-The setup encourages a clean separation of code-generated data from externally sourced data. Only essential datasets that are not easily reproducible or are lightweight should be committed.
+The setup encourages a clean separation of code-generated data from externally sourced data.
 
 The directories are organized as follows:
 - pulled: Contains raw speech text files scraped directly from the official [Federal Reserve website](https://www.federalreserve.gov/newsevents/speech/2008speech.htm). These speeches are from 2008 and saved as `.txt` files by running the scraping script.
 Example contents:
-- `assessing_the_potential_for_instability_in_financi.txt`
-- `economic_outlook.txt`
+    - `assessing_the_potential_for_instability_in_financi.txt`
+    - `economic_outlook.txt`
 > [!NOTE]
 > This folder is populated automatically by running `python code/scrape_fed_speeches.py`
 
