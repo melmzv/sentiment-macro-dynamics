@@ -27,7 +27,7 @@ Example contents:
 > - `code/sentiment_individual_quarterly_2008.py`
 > - `code/sentiment_tone_evolution.py`
 
-Note the following: :thinking:
+Note the following: :nerd_face:
 - The `pulled/` and `generated/` folders are versioned intentionally to support transparency and reproducibility.
 - The `.gitignore` rules in each subfolder were adapted to allow committed outputs (e.g., figures, key scraped content).
 
