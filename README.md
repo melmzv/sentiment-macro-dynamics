@@ -1,85 +1,81 @@
 # The Signaling Channel of QE during the Global Financial Crisis: Evidence from Fed Communication Tone
-The project extends the theoretical and empirical foundations laid out in recent academic work - most notably **Le Barbanchon et al. (2023)** - on the use of algorithmic job recommendation systems to mitigate search frictions in two-sided labor markets. The simulation approximates a stylized version of a randomized controlled trial in which AI-based job recommendations are evaluated against traditional search mechanisms.
 
-The motivation behind this prototype is twofold: first, to critically examine how AI tools reshape managerial decision-making and hiring practices; second, to explore their implications for job seekers, especially future graduates, navigating increasingly complex, tech-mediated labor markets. In line with the seminar’s learning goals, this prototype not only simulates algorithmic impact on match quality, retention, and wages, but also provides an extendable framework for analyzing equity and effectiveness in digital recruitment ecosystems.
+This repository is part of the seminar **“New Regimes of Monetary Policy”** at **DIW Berlin (German Institute for Economic Research)**. It accompanies the theoretical and analytical study of the **2008 Global Financial Crisis**, with a particular focus on **Quantitative Easing (QE)** and the **signaling channel** of central bank communication.
 
-The simulation is designed to be modular and adaptable: it runs on synthetic data but can easily be extended to integrate real-world datasets (e.g., **O\*NET**, **LEHD**, or wage records). The aim is to equip management researchers with a transparent, replicable foundation to investigate how data-driven matching technologies alter employment dynamics - whether for efficiency, fairness, or both.
+The project investigates the **evolution of tone in Federal Reserve speeches during 2008**, using natural language processing (NLP) tools. It aims to detect whether shifts in sentiment reflect monetary policy stances and crisis severity during the early stages of QE.
 
-# 🧠 What Does This Repo Do?
+This analytical prototype is not only relevant for speech analysis of the Fed but can be extended to:
 
-- Generates synthetic job seekers and job postings with skill profiles
-- Simulates AI-driven vs. manual job recommendation systems
-- Assigns applications and job outcomes based on match quality
-- Stores outcome data in tidy `.parquet` format
-- Can be extended to include real data from O*NET, unemployment statistics, or wage surveys
+- Other Fed communication channels (e.g., testimonies, FOMC press conferences),
+- International central banks (e.g., **European Central Bank**),
+- Broader macro-financial event detection pipelines.
 
-# 🧱 Simulation Results
 
-This section presents the simulation results from the Python prototype that models the impact of AI-driven job recommendations on labor market outcomes. The aim is to explore whether personalized recommendations can lead to improved job matching, retention, and wage outcomes.
+## 🧠 What Does This Repo Do?
 
-Inspired by Le Barbanchon et al. (2023), the simulation mimics a two-sided market where job seekers and vacancies are randomly assigned to control or treatment groups. The treatment group receives AI-generated recommendations based on cosine similarity scores across skill profiles. Each simulation run is stochastic by design: job offers and acceptance decisions depend on probabilistic matching scores and preference alignment. As a result, you may observe slightly different outcomes across multiple executions - this is expected and part of the experiment's flexible nature.
+- Scrapes all 2008 Fed speeches from the [official website](https://www.federalreserve.gov/newsevents/speech/2008speech.htm)
+- Applies sentiment analysis using the **VADER** lexicon ([GitHub Repo](https://github.com/cjhutto/vaderSentiment))
+- Aggregates and visualizes tone dynamics across **time**, **individual policymakers**, and **quarters**
+- Supports interpretation of **communication shifts** during key policy moments, e.g., Lehman Brothers collapse or first QE programs
 
-The simulation also allows for subgroup analysis by distinguishing between low-skilled and high-skilled workers, revealing heterogeneous treatment effects. Simulated wages are denominated in USD, reflecting typical U.S. labor market conditions.
+The approach uses **NLP** methods to quantify tone and leverages Python for reproducibility and extension.
 
-## 📊 Outcome Comparison
 
-The table below compares average outcomes between the control and treated groups across three dimensions:
 
-- `match_score`: the cosine similarity between the worker’s skill profile and the job.
-- `retained`: whether the match resulted in a long-term placement.
-- `wage`: the simulated annual wage in USD.
+## 📈 Results
 
-| Treated Group | Match Score | Retained | Wage (USD) |
-|---------------|-------------|----------|------------|
-| Control       | 0.7656      | 0.7843   | 44,048     |
-| Treated       | 0.9193      | 0.9286   | 47,911     |
+This section presents the three key visualizations generated from the tone analysis of 2008 Fed speeches. The sentiment scores were computed using **VADER**, an NLP tool designed for capturing tone in social and economic contexts.
 
-Treated individuals receive better matches (higher similarity), are more likely to be retained, and earn higher wages. This supports the idea that AI recommendations enhance job alignment and career outcomes.
-
-## 📊 Subgroup Comparison
-
-Subgroup-level results help unpack heterogeneity in treatment effects:
-
-| Skill Group | Treated Group | Match Score | Retained | Wage (USD) |
-|-------------|----------------|-------------|----------|------------|
-| High Skill  | Control        | 0.7957      | 0.8462   | 45,001     |
-| High Skill  | Treated        | 0.9244      | 0.9565   | 48,111     |
-| Low Skill   | Control        | 0.7342      | 0.7200   | 43,057     |
-| Low Skill   | Treated        | 0.9148      | 0.9038   | 47,734     |
-
-The low-skilled group experienced the largest **relative gains**, especially in retention and wage outcomes. This supports the hypothesis developed in the seminar paper: AI recommendations are particularly effective for job seekers facing greater frictions. These results align with the heterogeneity patterns observed in Le Barbanchon et al. (2023), suggesting that personalized algorithmic tools can mitigate disadvantages in job matching for vulnerable groups.
-
-## 📈 Visual Output
 
 <p align="center">
-  <img src="data/generated/Figure_1.png" alt="Bar Chart: Retention and Wage (Single Run)" width="700"/>
-  <br><em><strong>Figure 1:</strong> Bar chart comparing retention rate and average wage in a single simulation run. Individuals who received AI-generated job recommendations (treated group) had a substantially higher retention rate (≈92.9%) than those in the control group (≈78.4%). Their average wage was also significantly higher (≈$47,911 vs. $44,048). This illustrates the expected direction of the AI treatment effect on both job stability and economic reward - even though the magnitude can vary across runs.</em>
+  <img src="data/generated/Figure_tone_over_time.png" alt="Tone Over Time" width="800"/>
+  <br><em><strong>Figure 1:</strong> Daily average sentiment scores (compound polarity) for all Fed speeches in 2008. Notable drops in tone can be observed around key crisis dates, such as the Bear Stearns bailout in March and the Lehman collapse in September. The gradual recovery of tone toward December coincides with stronger forward guidance and unconventional easing communication. This graph reflects the Fed’s tone trajectory under rising financial stress.</em>
 </p>
+
 
 <p align="center">
-  <img src="data/generated/Figure_2.png" alt="Box Plot: 100 Simulations" width="900"/>
-  <br><em><strong>Figure 2:</strong> Box plots comparing the distribution of three key metrics - match score, retention, and wage - across 100 independent simulation runs. Treated individuals consistently outperform the control group across all dimensions. Notably, the interquartile ranges of the treated group are tighter for match scores, suggesting more reliable targeting by the AI. Retention and wage distributions also show favorable medians and reduced lower-end outliers in the treated group, indicating that AI not only improves outcomes on average but also reduces downside risk.</em>
+  <img src="data/generated/Figure_tone_by_speaker.png" alt="Tone by Speaker" width="850"/>
+  <br><em><strong>Figure 2:</strong> Average sentiment score by Fed speaker in 2008. Chairman Ben Bernanke shows a consistently more negative tone than other governors, likely reflecting his role during high-stakes interventions. Other members such as Kohn and Yellen maintain relatively neutral language. These differences hint at individual communication styles and leadership roles during crisis response.</em>
 </p>
 
-## Summary
 
-This simulation shows that the prototype behaves as designed: it successfully captures AI recommendation effects on job matching outcomes. The results replicate core insights from Le Barbanchon et al. (2023) in a stylized setting and can be extended further. The flexible simulation design also enables subgroup comparisons, robustness checks, and further customization for research purposes.
+<p align="center">
+  <img src="data/generated/Figure_quarterly_tone.png" alt="Quarterly Tone Shift" width="700"/>
+  <br><em><strong>Figure 3:</strong> Quarterly average tone of Fed speeches in 2008. The steep decline from Q1 to Q3 underscores the worsening financial outlook, culminating in QE announcements. The partial rebound in Q4 suggests a communication shift toward reassurance and signaling of long-term policy commitment. This chart supports the hypothesis that tone evolves with both market conditions and policy signaling goals.</em>
+</p>
 
-Having ideas or fixes? Contributions are welcome! :raised_hands:
 
-# How to Reproduce the Simulation Output
+## 💡 Summary
 
-To reproduce the simulation results for this project, follow these steps:
-1. Clone the repository
-2. Create a virtual environment with `python3 -m venv venv && source venv/bin/activate`
+This prototype provides empirical evidence on how **central bank tone** evolved during the pivotal year of 2008. It uses a **transparent NLP pipeline** to trace tone dynamics at high resolution – by day, by speaker, and by quarter.
+
+Its modular structure allows for future extensions:
+- Comparing **Fed speeches vs. testimonies**
+- Cross-institutional tone studies (e.g., ECB, BoE)
+- Enhancing with **topic modeling** or **machine learning classifiers** beyond lexicon methods
+
+The work contributes to ongoing research on central bank transparency, credibility, and the signaling power of monetary policy communication.
+
+
+## 🔁 Reproducibility
+
+To run the full pipeline and regenerate plots:
+
+1. Clone the repository  
+2. Create a virtual environment:  
+   ```bash
+   python3 -m venv venv && source venv/bin/activate
 3. Install dependencies by running `pip install -r requirements.txt` in the terminal
 4. Run `make all` in the terminal
 
 
 # 📚 Suggested Readings & References
--	Cowgill, B., & Perkowski, P. (2024). Delegation in hiring: Evidence from a two-sided audit. Journal of Political Economy Microeconomics, 2(4), 852–882. https://doi.org/10.1086/732127
--	Le Barbanchon, T., Hensvik, L., & Rathelot, R. (2023). How can AI improve search and matching? Evidence from 59 million personalized job recommendations. SSRN Working Paper No. 4604814. https://ssrn.com/abstract=4604814
--	Miklós-Thal, J., & Tucker, C. (2019). Collusion by algorithm: Does better demand prediction facilitate coordination between sellers? Management Science, 65(4), 1552–1561. https://doi.org/10.1287/mnsc.2019.3287
+- VADER Sentiment Analysis Repo: https://github.com/cjhutto/vaderSentiment
+- Federal Reserve 2008 Speeches: https://www.federalreserve.gov/newsevents/speech/2008speech.htm
+- Fratzscher, M., & Rieth, M. (2019). Monetary Policy, Innovation and Productivity: Evidence from the Euro Area. DIW Discussion Paper.
+- Hansen, S., McMahon, M., & Prat, A. (2018). Transparency and Deliberation within the FOMC: A Computational Linguistics Approach. Quarterly Journal of Economics.
+- Schmeling, M., & Wagner, C. (2019). Does Central Bank Tone Move Asset Prices? International Journal of Central Banking.
 
 # Licensing
 The repository is licensed under the MIT license.
+Contributions and extensions are welcome — especially from researchers at DIW Berlin, ECB, or other macro-finance research communities. :raised_hands:
