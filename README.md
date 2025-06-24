@@ -1,10 +1,10 @@
 # The Signaling Channel of QE during the Global Financial Crisis: Evidence from Fed Communication Tone
 
-This repository is part of the seminar **“New Regimes of Monetary Policy”** at **DIW Berlin (German Institute for Economic Research)**. It accompanies the theoretical and analytical study of the **2008 Global Financial Crisis**, with a particular focus on **Quantitative Easing (QE)** and the **signaling channel** of central bank communication.
+This repository forms part of the graduate seminar **“New Regimes of Monetary Policy”** at **DIW Berlin (German Institute for Economic Research)**, held under the supervision of Prof. Marcel Fratzscher, Ph.D. It accompanies the theoretical and analytical study of the **2008 Global Financial Crisis**, with a particular focus on **Quantitative Easing (QE)** and the **signaling channel** of central bank communication.
 
 The project investigates the **evolution of tone in Federal Reserve speeches during 2008**, using natural language processing (NLP) tools. It aims to detect whether shifts in sentiment reflect monetary policy stances and crisis severity during the early stages of QE. This repo is designed for researchers, students, and policymakers interested in the intersection of monetary policy, NLP, and financial crises.
 
-This analytical prototype is not only relevant for speech analysis of the Fed but can be extended to:
+This analytical framework contributes to the growing literature on central bank communication as a policy instrument, demonstrating how sentiment analysis can uncover latent signals in qualitative data. While the current implementation focuses on the Federal Reserve in 2008, the methodology is generalizable and may be extended to:
 
 - Other Fed communication channels (e.g., testimonies, FOMC press conferences),
 - International central banks (e.g., **European Central Bank**),
