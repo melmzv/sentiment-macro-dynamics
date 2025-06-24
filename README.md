@@ -2,7 +2,7 @@
 
 This repository is part of the seminar **“New Regimes of Monetary Policy”** at **DIW Berlin (German Institute for Economic Research)**. It accompanies the theoretical and analytical study of the **2008 Global Financial Crisis**, with a particular focus on **Quantitative Easing (QE)** and the **signaling channel** of central bank communication.
 
-The project investigates the **evolution of tone in Federal Reserve speeches during 2008**, using natural language processing (NLP) tools. It aims to detect whether shifts in sentiment reflect monetary policy stances and crisis severity during the early stages of QE.
+The project investigates the **evolution of tone in Federal Reserve speeches during 2008**, using natural language processing (NLP) tools. It aims to detect whether shifts in sentiment reflect monetary policy stances and crisis severity during the early stages of QE. This repo is designed for researchers, students, and policymakers interested in the intersection of monetary policy, NLP, and financial crises.
 
 This analytical prototype is not only relevant for speech analysis of the Fed but can be extended to:
 
@@ -45,7 +45,7 @@ This section presents the three key visualizations generated from the tone analy
 </p>
 
 
-## 💡 Summary
+## 💡 Discussion
 
 This prototype provides empirical evidence on how **Federal Reserve tone** evolved during the pivotal year of 2008. It uses a **transparent NLP pipeline** to trace tone dynamics at high resolution – by pivotal event, by individual speech, and by quarter.
 
@@ -57,7 +57,7 @@ Its modular structure allows for future extensions:
 The work contributes to ongoing research on central bank transparency, credibility, and the signaling power of monetary policy communication.
 
 
-## 🔁 Reproducibility
+# 🔁 Reproducibility
 
 To run the full pipeline and regenerate plots:
 
@@ -65,8 +65,11 @@ To run the full pipeline and regenerate plots:
 2. Create a virtual environment:  
    ```bash
    python3 -m venv venv && source venv/bin/activate
-3. Install dependencies by running `pip install -r requirements.txt` in the terminal
-4. Run `make all` in the terminal
+3. To run the complete workflow in one click: 
+   ```bash
+   pip install -r requirements.txt
+   make all
+   ```
 
 
 # 📚 Suggested Readings & References
@@ -79,4 +82,4 @@ To run the full pipeline and regenerate plots:
 # Licensing
 The repository is licensed under the MIT license.
 
-Contributions and extensions are welcome — especially from researchers at DIW Berlin, ECB, or other macro-finance research communities. :raised_hands:
+Contributions and extensions are welcome - especially from researchers at DIW Berlin, ECB, or other macro-finance research communities. :raised_hands:
